@@ -1,0 +1,141 @@
+<h1 id = "tag">Book Appointment</h1><br>
+
+<div class="container">
+    <div class="row">
+        <form [formGroup]="appointment">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>patientName</mat-label>
+                <input matInput formControlName="patientName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>age</mat-label>
+                <input matInput formControlName="age">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>phonenumber</mat-label>
+                <input matInput formControlName="phonenumber">
+            </mat-form-field>
+            <button mat-raised-button (click)="book();">Book </button>
+
+        </form>
+    </div>
+
+</div><br>
+<div class="container">
+    <div class="row">
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Doctordetails">All logs
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element;let i = index;"> {{i+1}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="doctorname">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.doctorname}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="speciality">
+                            <th mat-header-cell *matHeaderCellDef> Weight </th>
+                            <td mat-cell *matCellDef="let element"> {{element.speciality}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="fee">
+                            <th mat-header-cell *matHeaderCellDef> fee </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fee}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="age">
+                            <th mat-header-cell *matHeaderCellDef> age </th>
+                            <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="patientName">
+                            <th mat-header-cell *matHeaderCellDef> patientName </th>
+                            <td mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="phonenumber">
+                            <th mat-header-cell *matHeaderCellDef> phonenumber </th>
+                            <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="appointmentDate">
+                            <th mat-header-cell *matHeaderCellDef> appointmentDate </th>
+                            <td mat-cell *matCellDef="let element"> {{element.appointmentDate | date:'medium'}} </td>
+                        </ng-container>
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                </div>
+
+            </mat-tab>
+            <mat-tab label="Eariler/PatientDetails">Eariler/PatientDetails
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Patient Name</mat-label>
+                    <input matInput #pname>
+                </mat-form-field>
+                <button mat-raised-button (click)="patientdetails(pname.value);">Search by patient </button>
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element;let i = index;"> {{i+1}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="doctorname">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.doctorname}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="speciality">
+                            <th mat-header-cell *matHeaderCellDef> Weight </th>
+                            <td mat-cell *matCellDef="let element"> {{element.speciality}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="fee">
+                            <th mat-header-cell *matHeaderCellDef> fee </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fee}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="age">
+                            <th mat-header-cell *matHeaderCellDef> age </th>
+                            <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="patientName">
+                            <th mat-header-cell *matHeaderCellDef> patientName </th>
+                            <td mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="phonenumber">
+                            <th mat-header-cell *matHeaderCellDef> phonenumber </th>
+                            <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="appointmentDate">
+                            <th mat-header-cell *matHeaderCellDef> appointmentDate </th>
+                            <td mat-cell *matCellDef="let element"> {{element.appointmentDate | date:'medium'}} </td>
+                        </ng-container>
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                </div>
+            </mat-tab>
+            <mat-tab label="Wait List">Wait List</mat-tab>
+            <mat-tab label="No shower">No shower</mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

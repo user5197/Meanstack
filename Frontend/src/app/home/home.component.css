@@ -1,0 +1,45 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.module-listing .module_tab_list li {
+    display: inline-block;
+    margin: 0 7px 0 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #dfdfdf;
+    color: #000;
+    padding: 10px 22px 10px;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 500;
+    width: 105px;
+    text-align: center;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+.module-listing .module_tab_list li.active,
+.module-listing .module_tab_list li:hover {
+    background-color: #fff;
+    color: #324A7B;
+}
+
+mat-tab-label {
+    background-color: #324A7B;
+    /* color:; */
+}
+
+
+#tag {
+    margin-left: 300px
+}
