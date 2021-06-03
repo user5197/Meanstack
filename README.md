@@ -1,10 +1,12 @@
 
 
-Frontend Move to Frontend Dir, then "npm install" on the path in Angular.
+**Frontend **
+
+Move to Frontend Dir, then "npm install" on the path in Angular.
 
 To run the Angular, use the cmd : "ng serve"
 
-Backend
+**Backend **
 
 Go to this Dir, then "npm install" on the path in NodeJs.
 
